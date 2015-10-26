@@ -294,11 +294,11 @@ Flipsnap.prototype.moveToPoint = function(point, transitionDuration) {
   if (self.currentPoint === self._maxPoint) {
     self._setX(- self.currentPoint * self._distance + self._lastDistanceOffset, transitionDuration);
   }
-  else if (self.currentPoint === 1) {
-    self._setX(- self.currentPoint * self._distance + self._firstDistanceOffset, transitionDuration);
+  else if (self.currentPoint === 0) {
+    self._setX(- self.currentPoint * self._distance, transitionDuration);
   }
   else {
-    self._setX(- self.currentPoint * self._distance, transitionDuration);
+    self._setX(- self.currentPoint * self._distance + self._firstDistanceOffset, transitionDuration);
   }
 
   if (beforePoint !== self.currentPoint) { // is move?

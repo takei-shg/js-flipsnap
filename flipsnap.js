@@ -114,6 +114,7 @@ Flipsnap.prototype.init = function(element, opts) {
   self.disable3d = (opts.disable3d === undefined) ? false : opts.disable3d;
   self.transitionDuration = (opts.transitionDuration === undefined) ? '350ms' : opts.transitionDuration + 'ms';
   self.threshold = opts.threshold || 0;
+  self.firstDistanceOffset = opts.firstDistanceOffset;
   self.lastDistanceOffset = opts.lastDistanceOffset;
 
   // set property
@@ -209,6 +210,14 @@ Flipsnap.prototype.refresh = function() {
   // setting maxX
   self._maxX = -self._distance * self._maxPoint;
 
+  // setting firstDistanceOffset
+  if (self.firstDistanceOffset === undefined) {
+    self._firstDistanceOffset = 0;
+  }
+  else {
+    self._firstDistanceOffset = self.firstDistanceOffset;
+  }
+
   // setting lastDistanceOffset
   if (self.lastDistanceOffset === undefined) {
     self._lastDistanceOffset = 0;
@@ -284,6 +293,9 @@ Flipsnap.prototype.moveToPoint = function(point, transitionDuration) {
 
   if (self.currentPoint === self._maxPoint) {
     self._setX(- self.currentPoint * self._distance + self._lastDistanceOffset, transitionDuration);
+  }
+  else if (self.currentPoint === 1) {
+    self._setX(- self.currentPoint * self._distance + self._firstDistanceOffset, transitionDuration);
   }
   else {
     self._setX(- self.currentPoint * self._distance, transitionDuration);

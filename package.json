@@ -1,7 +1,7 @@
 {
   "name": "flipsnap",
   "description": "Provides UI of snap and slide",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "main": "./flipsnap.js",
   "scripts": {
     "test": "phantomjs test/lib/mocha-phantomjs.coffee test/index.html",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com/hokaccha/js-flipsnap.git"
+    "url": "git@github.com/takei-shg/js-flipsnap.git"
   },
   "license": "MIT",
   "homepage": "https://github.com/hokaccha/js-flipsnap",
